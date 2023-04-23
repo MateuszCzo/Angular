@@ -6,15 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = "Angular";
-  pi = Math.PI;
-  date = new Date();
 
-  dog = new Dog("Reksio", 4);
-
-  showDog() {
-    return ' Mój pies to ' + this.dog.name + ' ma ' + this.dog.age + ' lata.'
-  }
+  dog: Dog;
 }
 
 class Dog {
