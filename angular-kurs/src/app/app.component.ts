@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = "Angular";
+  pi = Math.PI;
+  date = new Date();
 
   dog = new Dog("Reksio", 4);
 

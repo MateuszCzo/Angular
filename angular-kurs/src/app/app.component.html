@@ -1,7 +1,9 @@
 <p>
   Lorem ipsum...<br>
-  {{ title }}<br>
-  {{ dog.name }} {{ dog.age }}<br>
-  {{ showDog() }}<br>
+  {{ title | uppercase }}<br>
+  {{ pi | number: '1.1-2' }}<br>
+  {{ date | date: 'dd-MM-yyyy' }}<br>
+  {{ dog.name | lowercase }} {{ dog.age }}<br>
+  {{ showDog() | lowercase }}<br>
   {{ 2 + 2 }}
 </p>
