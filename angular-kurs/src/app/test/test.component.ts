@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-test',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.css']
+  template: '<p>test works!</p>',
+  styles: [`p{color: red}`]
 })
 export class TestComponent {
 
