@@ -1,4 +1,15 @@
-<p>
-  {{ dog?.name }}
-  {{ dog && dog.name }}
-</p>
+<div>
+
+  <ul>
+    <li *ngFor="let day of days">
+      {{ day }}
+    </li>
+  </ul>
+
+  <ul>
+    <li *ngFor="let dog of dogs; let i = index">
+      {{ i }} - {{ dog.name }} {{ dog.age }}
+    </li>
+  </ul>
+
+</div>
