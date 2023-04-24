@@ -1,18 +1,7 @@
 <div>
 
-  <div>
-    <input [value]="inputText">
-  </div>
-
-  <div>
-    <input [(ngModel)]="inputText2Way">
-    {{ inputText2Way }}
-  </div>
-
-  <div>
-    <input (click)="click()">
-    <button [disabled]="button">Dodaj</button>
-    {{ showClick }}
-  </div>
+  <p [className]="colorClass">Lorem ipsum...</p>
+  <input [maxLength]="maxLength" [value]="inputText">
+  <button [disabled]="isDisabled" (click)="change()">Change</button>
 
 </div>

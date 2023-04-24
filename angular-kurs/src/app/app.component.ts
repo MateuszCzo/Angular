@@ -6,14 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  inputText = 'Pole tekstowe';
-  inputText2Way:string = '';
-  button = true;
-  showClick = '';
+  
+  inputText = 'tekst';
+  maxLength = 5;
+  colorClass = 'color';
+  isDisabled = false;
 
-  click() {
-    this.showClick = 'Przycisk aktywny'
-    this.button = false;
+  change() {
+    this.inputText = 'Zmiana tekstu i koloru';
+    this.maxLength = 10;
+    this.colorClass = 'color2';
+    this.isDisabled = true;
   }
 
 }
