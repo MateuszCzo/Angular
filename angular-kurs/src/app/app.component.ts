@@ -6,17 +6,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
-  inputText = 'tekst';
-  maxLength = 5;
+  isDisabled = true;
   colorClass = 'color';
-  isDisabled = false;
+  errorText = '';
 
-  change() {
-    this.inputText = 'Zmiana tekstu i koloru';
-    this.maxLength = 10;
+  onFocus() {
     this.colorClass = 'color2';
-    this.isDisabled = true;
   }
 
+  onClick(event: MouseEvent | KeyboardEvent) {
+    console.log(event);
+  }
+
+  onMouseMove(event: MouseEvent) {
+    console.log(event.clientX + ' ' + event.clientY);
+  }
+
+  onPaste(event: ClipboardEvent) {
+    console.log(event);
+    this.errorText = 'do not paste';
+  }
+
+  change() {
+    this.isDisabled = !this.isDisabled;
+  }
 }

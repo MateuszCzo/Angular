@@ -1,7 +1,20 @@
 <div>
 
   <p [className]="colorClass">Lorem ipsum...</p>
-  <input [maxLength]="maxLength" [value]="inputText">
-  <button [disabled]="isDisabled" (click)="change()">Change</button>
+
+  <input [disabled]="isDisabled" (focus)="onFocus()">
+  <br>
+
+  <input [disabled]="isDisabled" (click)="onClick($event)">
+  <br>
+
+  <input [disabled]="isDisabled" (mousemove)="onMouseMove($event)">
+  <br>
+
+  {{ errorText }}
+  <input [disabled]="isDisabled" (paste)="onPaste($event)">
+  <br>
+
+  <button (click)="change()">Change</button>
 
 </div>
