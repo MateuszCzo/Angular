@@ -1,13 +1,18 @@
 <div>
 
-  <ul>
-    <li *ngFor="let day of days">
-      {{ day }}
-    </li>
-  </ul>
+  <ng-container *ngIf="days.length > 0">
+    <ul>
+      <ng-container *ngFor="let day of days; let e = even">
+        <li *ngIf="e">
+          {{ day }}
+        </li>
+      </ng-container>
+    </ul>
+  </ng-container>
 
   <ul>
     <li *ngFor="let dog of dogs; let i = index">
+      {{ dog.name ? dog.name : "Reksio" }}
       {{ i }} - {{ dog.name }} {{ dog.age }}
     </li>
   </ul>
