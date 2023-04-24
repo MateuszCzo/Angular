@@ -10,11 +10,24 @@
     </ul>
   </ng-container>
 
-  <ul>
-    <li *ngFor="let dog of dogs; let i = index">
-      {{ dog.name ? dog.name : "Reksio" }}
-      {{ i }} - {{ dog.name }} {{ dog.age }}
-    </li>
-  </ul>
+
+  <ng-container *ngIf="dogs.length > 0; then areDogs; else noDogs"></ng-container>
+
+  <ng-template #areDogs>
+    <ul>
+      <li *ngFor="let dog of dogs; let i = index">
+        {{ dog.name ? dog.name : "Reksio" }}
+        {{ i }} - {{ dog.name }} {{ dog.age }}
+      </li>
+    </ul>
+  </ng-template>
+
+  <ng-template #noDogs>
+    <p>0 dogs</p>
+  </ng-template>
+
+
+  <button (click)="addDogs()" >Add</button>
+  <button (click)="removeDogs()" >Remove</button>
 
 </div>
