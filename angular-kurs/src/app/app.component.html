@@ -1,16 +1,18 @@
 <div>
 
-  <div *ngFor="let day of days">
-    <div [ngSwitch]="day">
-      <div *ngSwitchCase="'poniedzialek'">monday</div>
-      <div *ngSwitchCase="'wtorek'">tuesday</div>
-      <div *ngSwitchCase="'sroda'">wednesday</div>
-      <div *ngSwitchCase="'czwartek'">thursday</div>
-      <div *ngSwitchCase="'piatek'">friday</div>
-      <div *ngSwitchCase="'sobota'">saturday</div>
-      <div *ngSwitchCase="'niedziela'">sunday</div>
-      <div *ngSwitchDefault>wrong data</div>
-    </div>
+  <div>
+    <input [value]="inputText">
+  </div>
+
+  <div>
+    <input [(ngModel)]="inputText2Way">
+    {{ inputText2Way }}
+  </div>
+
+  <div>
+    <input (click)="click()">
+    <button [disabled]="button">Dodaj</button>
+    {{ showClick }}
   </div>
 
 </div>

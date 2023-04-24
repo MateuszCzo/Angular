@@ -6,6 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  days = ['poniedzialek', 'wtorek', 'sroda', 'czwartek', 'piatek', 'sobota', 'niedziela'];
+  inputText = 'Pole tekstowe';
+  inputText2Way:string = '';
+  button = true;
+  showClick = '';
+
+  click() {
+    this.showClick = 'Przycisk aktywny'
+    this.button = false;
+  }
 
 }
