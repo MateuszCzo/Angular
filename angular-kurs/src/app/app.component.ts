@@ -6,7 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    proffesion = 'programista';
-    skill = 'Angular';
+    newTask = '';
+    tasksList: Array<string> = [];
+    tasksDone: Array<string> = [];
 
+    add() {
+      this.tasksList.push(this.newTask);
+      this.newTask = '';
+      //console.log(this.tasksList);
+    }
+
+    remove(task : string) {
+      this.tasksList = this.tasksList.filter(e => e !== task)
+    }
+
+    done(task : string) {
+      this.tasksDone.push(task)
+      this.remove(task);
+    }
 }

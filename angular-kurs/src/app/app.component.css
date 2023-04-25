@@ -1,7 +1,4 @@
-.color {
-    color: red;
-}
-
-.color2 {
-    color: blue;
+.container {
+    display: flex;
+    justify-content: space-around;
 }
