@@ -2,8 +2,8 @@
 
   <p>{{ proffesion }} - {{ skill }}</p>
   
-  <input [value]="proffesion" (input)="saveP($event)">
+  <input [(ngModel)]="proffesion">
   <br>
-  <input [value]="skill" (input)="saveS($event)">
+  <input [(ngModel)]="skill">
 
 </div>
