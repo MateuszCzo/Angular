@@ -6,28 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  isDisabled = true;
-  colorClass = 'color';
-  errorText = '';
+    proffesion = 'programista';
+    skill = 'Angular';
 
-  onFocus() {
-    this.colorClass = 'color2';
-  }
+    constructor() {
+    }
 
-  onClick(event: MouseEvent | KeyboardEvent) {
-    console.log(event);
-  }
+    saveP(event : any) {
+      this.proffesion = event.target.value;
+    }
 
-  onMouseMove(event: MouseEvent) {
-    console.log(event.clientX + ' ' + event.clientY);
-  }
+    saveS(event : any) {
+      this.skill = event.target.value;
+    }
 
-  onPaste(event: ClipboardEvent) {
-    console.log(event);
-    this.errorText = 'do not paste';
-  }
-
-  change() {
-    this.isDisabled = !this.isDisabled;
-  }
 }

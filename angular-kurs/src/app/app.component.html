@@ -1,20 +1,9 @@
 <div>
 
-  <p [className]="colorClass">Lorem ipsum...</p>
-
-  <input [disabled]="isDisabled" (focus)="onFocus()">
+  <p>{{ proffesion }} - {{ skill }}</p>
+  
+  <input [value]="proffesion" (input)="saveP($event)">
   <br>
-
-  <input [disabled]="isDisabled" (click)="onClick($event)">
-  <br>
-
-  <input [disabled]="isDisabled" (mousemove)="onMouseMove($event)">
-  <br>
-
-  {{ errorText }}
-  <input [disabled]="isDisabled" (paste)="onPaste($event)">
-  <br>
-
-  <button (click)="change()">Change</button>
+  <input [value]="skill" (input)="saveS($event)">
 
 </div>
