@@ -1,3 +1,7 @@
-<app-child>
-    <p>Lorem ipsum...</p>
-</app-child>
+<div *ngIf="show">
+    <app-child [inputText]="title" [inputDog]="dog"></app-child>
+</div>
+<button  (click)="changeTitle()">title</button>
+<button  (click)="changeDog()">dog</button>
+<button  (click)="nothing()">nothing</button>
+<button  (click)="destroy()">destroy</button>
