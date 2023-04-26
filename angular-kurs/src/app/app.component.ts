@@ -6,9 +6,19 @@ import { Component, EventEmitter } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    tasksList: Array<string> = ['task1', 'task2', 'task3'];
+  tasksList: Array<string> = [];
+  tasksDone: Array<string> = [];
 
-    selected(task: string): void {
-      console.log(task);
-    }
+  add(task: string) {
+    this.tasksList.push(task);
+  }
+
+  remove(task : string) {
+    this.tasksList = this.tasksList.filter(e => e !== task)
+  }
+
+  done(task : string) {
+    this.tasksDone.push(task)
+    this.remove(task);
+  }
 }
