@@ -1,3 +1,15 @@
-<input #inputText>
-<button (click)="add(inputText)">Dodaj</button>
-<app-child #childRef [tasks]="tasksList" (eventTask)="selected($event)"></app-child>
+<div>
+    <div class="container">
+        <app-add-task (emitTask)="add($event)"></app-add-task>
+    </div>
+  
+    <div class="container">
+        <app-todo-task 
+            [tasksList]="tasksList" 
+            (emitDone)="done($event)" 
+            (emitRemove)="remove($event)">
+        </app-todo-task>
+
+        <app-done-task [tasksDone]="tasksDone"></app-done-task>
+    </div>
+</div>
