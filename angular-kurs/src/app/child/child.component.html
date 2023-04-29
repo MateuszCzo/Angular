@@ -1,4 +1,8 @@
 <div>
-    <p>{{ inputText }}</p>
-    <p>{{ inputDog.name }}</p>
+    <ul>
+        <li *ngFor="let task of tasks">
+            {{ task }}
+            <button (click)="action(task)">Zaznacz</button>
+        </li>
+    </ul>
 </div>

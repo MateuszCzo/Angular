@@ -1,36 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { ChildComponent } from './child/child.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  title = 'Lorem ipsum...';
-  dog = new Dog('Reksio');
-  show = true;
+export class AppComponent {
+  tasksList = ['task1', 'task2', 'task3'];
 
-  ngOnInit(): void {
+  @ViewChild('childRef') childComponent!: ChildComponent;
+
+  @ViewChild('inputText') inputText!: ElementRef;
+
+  selected(task: string): void {
+    console.log(task);
   }
 
-  changeTitle() {
-    this.title = 'Lorem ipsum 2...';
-  }
-
-  changeDog() {
-    //this.dog.name = 'Pluto'; // nie zadziala ngOnChanges w komponencie child
-    this.dog = new Dog('Pluto');
-  }
-
-  nothing() {
-  }
-
-  destroy() {
-    this.show = !this.show;
-  }
-}
-
-class Dog {
-  constructor(public name: string) {
+  add(task: HTMLInputElement) {
+    this.tasksList.push(task.value);
+    //this.childComponent
+    //this.inputText
   }
 }
