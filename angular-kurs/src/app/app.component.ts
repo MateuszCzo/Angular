@@ -1,28 +1,21 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ClickService } from './services/click.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [ClickService]
 })
-export class AppComponent implements OnInit {
-  tasksList: Array<string> = [];
-  tasksDone: Array<string> = [];
+export class AppComponent {
+  allClicks = 0;
+
+  constructor(private clickService: ClickService) {
+  }
 
   ngOnInit(): void {
-    this.tasksList = ['task1', 'task2', 'task3'];
-  }
-
-  add(task: string) {
-    this.tasksList.push(task);
-  }
-
-  remove(task : string) {
-    this.tasksList = this.tasksList.filter(e => e !== task)
-  }
-
-  done(task : string) {
-    this.tasksDone.push(task)
-    this.remove(task);
+    this.clickService.getSum().subscribe(clicks => {
+      this.allClicks = clicks;
+    })
   }
 }

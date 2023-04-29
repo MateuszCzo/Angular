@@ -1,15 +1,13 @@
 <div>
-    <div class="container">
-        <app-add-task (emitTask)="add($event)"></app-add-task>
-    </div>
-  
-    <div class="container">
-        <app-todo-task 
-            [tasksList]="tasksList" 
-            (emitDone)="done($event)" 
-            (emitRemove)="remove($event)">
-        </app-todo-task>
+    <h2>Clicker App</h2>
 
-        <app-done-task [tasksDone]="tasksDone"></app-done-task>
+    <div class="box">
+        <app-clicker1></app-clicker1>
+
+        <div>
+            <p>Clicks: {{ allClicks }}</p>
+        </div>
+
+        <app-clicker2></app-clicker2>
     </div>
 </div>
