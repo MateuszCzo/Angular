@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { Clicker1Component } from './clicker1/clicker1.component';
 import { Clicker2Component } from './clicker2/clicker2.component';
+import { LogService } from './services/log.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { Clicker2Component } from './clicker2/clicker2.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [LogService],
   //providers: [ClickService] //imporuje servis we wszystkich modulach
   bootstrap: [AppComponent]
 })
