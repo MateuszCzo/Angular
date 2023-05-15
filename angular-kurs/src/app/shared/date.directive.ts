@@ -1,9 +1,11 @@
-import { Directive, HostListener, OnInit } from '@angular/core';
+import { Directive, HostListener, Input, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[appDate]'
 })
 export class DateDirective implements OnInit {
+
+  @Input() date!: Date;
 
   constructor() { }
 
@@ -12,12 +14,12 @@ export class DateDirective implements OnInit {
 
   @HostListener('mouseenter')
   mouseEnter(eventDate: Event) {
-    console.log('mouse enter');
+    console.log(this.date);
   }
 
   @HostListener('mouseleave')
   mouseLeave(eventDate: Event) {
-    console.log('mouse leave');
+    console.log(this.date);
   }
 
 }
