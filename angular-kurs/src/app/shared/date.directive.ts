@@ -1,4 +1,4 @@
-import { Directive, HostListener, Input, OnInit } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, OnInit, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appDate]'
@@ -6,20 +6,24 @@ import { Directive, HostListener, Input, OnInit } from '@angular/core';
 export class DateDirective implements OnInit {
 
   @Input() date!: Date;
+  private paragraph;
 
-  constructor() { }
+  constructor(private el: ElementRef, private renderer: Renderer2) {
+    this.paragraph = this.renderer.createElement('p');
+  }
 
   ngOnInit(): void {
   }
 
   @HostListener('mouseenter')
   mouseEnter(eventDate: Event) {
-    console.log(this.date);
+    this.paragraph.innerHTML = this.date.toLocaleDateString();
+    this.renderer.appendChild(this.el.nativeElement, this.paragraph);
   }
 
   @HostListener('mouseleave')
   mouseLeave(eventDate: Event) {
-    console.log(this.date);
+    this.renderer.removeChild(this.el.nativeElement, this.paragraph);
   }
 
 }
