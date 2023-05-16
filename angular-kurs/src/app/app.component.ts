@@ -46,9 +46,14 @@ export class AppComponent {
   updatePost() {
     const post: Post = ({
       userId: 1,
+      id: 1,
       title: "My post",
       body: "Update post in angular!",
     })
+
+    this.httpService.updatePost(post).subscribe(post => {
+      console.log(post);
+    });
   }
 
   deletePost() {

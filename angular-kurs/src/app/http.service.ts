@@ -29,8 +29,8 @@ export class HttpService  {
     return this.http.post<Post>(this.url + '/posts', post);
   }
 
-  updatePost() {
-    
+  updatePost(post: Post): Observable<Post> {
+    return this.http.put<Post>(this.url + '/posts/' + post.id, post);
   }
 
   deletePost() {
