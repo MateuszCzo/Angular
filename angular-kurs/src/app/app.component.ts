@@ -37,6 +37,10 @@ export class AppComponent {
       title: "My post",
       body: "First post in angular!",
     })
+
+    this.httpService.addPost(post).subscribe(post => {
+      console.log(post);
+    });
   }
 
   updatePost() {

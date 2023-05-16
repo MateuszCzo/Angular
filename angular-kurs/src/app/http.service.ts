@@ -25,8 +25,8 @@ export class HttpService  {
     return this.http.get<Array<Post>>(this.url + '/posts', {params: param});
   }
 
-  addPost() {
-    
+  addPost(post: Post): Observable<Post> {
+    return this.http.post<Post>(this.url + '/posts', post);
   }
 
   updatePost() {
