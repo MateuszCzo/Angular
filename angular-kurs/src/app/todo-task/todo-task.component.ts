@@ -14,7 +14,9 @@ export class TodoTaskComponent {
 
   constructor(private taskService: TasksServices) {
     this.taskService.getTasksListObs()
-      .subscribe((tasks: Array<Task>) => {this.tasksList = tasks});
+      .subscribe((tasks: Array<Task>) => {
+        this.tasksList = tasks.slice();
+      });
   }
 
   remove(task : Task) {
