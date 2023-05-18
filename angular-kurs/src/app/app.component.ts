@@ -14,8 +14,8 @@ export class AppComponent {
 
   getPosts() {
     this.httpService.getPosts().subscribe(
-      (posts: Array<Post>) => { console.log(posts); },
-      (err: HttpErrorResponse) => { console.log(`${ err }: retried 2 times`) }
+      posts => { console.log(posts); },
+      (error: HttpErrorResponse) => { console.log(error) }
     );
   }
 

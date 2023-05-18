@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -12,12 +12,18 @@ export class HttpService  {
   constructor(private http: HttpClient) {
   }
 
-  getPosts(): Observable<Array<Post>> {
-    return this.http.get<Array<Post>>(this.url + "/posts");
+  getPosts(): Observable<HttpResponse<Response>> {
+    return this.http.get<Response>(
+      this.url + "/posts",
+      { observe: 'response' }
+    );
   }
 
-  getPost(id: number): Observable<Post> {
-    return this.http.get<Post>(this.url + "/posts/" + id);
+  getPost(id: number): Observable<any> {
+    return this.http.get(
+      this.url + "/posts/" + id,
+      { responseType: 'text' }
+    );
   }
 
   getPostByUser(userId: number): Observable<Array<Post>> {
