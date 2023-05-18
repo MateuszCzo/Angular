@@ -57,7 +57,9 @@ export class AppComponent {
   }
 
   deletePost() {
-
+    this.httpService.deletePost(1).subscribe(post => {
+      console.log(post);
+    });
   }
 
   changePost() {

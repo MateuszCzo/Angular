@@ -33,8 +33,8 @@ export class HttpService  {
     return this.http.put<Post>(this.url + '/posts/' + post.id, post);
   }
 
-  deletePost() {
-
+  deletePost(id: number): Observable<Post> {
+    return this.http.delete<Post>(this.url + '/posts/' + id);
   }
 
   changePost() {
