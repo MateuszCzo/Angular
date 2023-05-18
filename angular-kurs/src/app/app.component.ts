@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpService } from './http.service';
+import { HttpErrorResponse } from '@angular/common/http'
 
 @Component({
   selector: 'app-root',
@@ -12,9 +13,10 @@ export class AppComponent {
   }
 
   getPosts() {
-    this.httpService.getPosts().subscribe(posts => {
-      console.log(posts);
-    });
+    this.httpService.getPosts().subscribe(
+      (posts: Array<Post>) => { console.log(posts); },
+      (err: HttpErrorResponse) => { console.log(`${ err }: retried 2 times`) }
+    );
   }
 
   getPost() {
