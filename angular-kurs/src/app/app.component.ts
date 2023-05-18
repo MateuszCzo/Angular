@@ -67,6 +67,10 @@ export class AppComponent {
       id: 1,
       body: "Change post in angular!",
     })
+
+    this.httpService.changePost(post).subscribe(post => {
+      console.log(post);
+    });
   }
 }
 

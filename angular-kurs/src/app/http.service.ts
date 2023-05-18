@@ -37,8 +37,8 @@ export class HttpService  {
     return this.http.delete<Post>(this.url + '/posts/' + id);
   }
 
-  changePost() {
-    
+  changePost(post: Post): Observable<Post> {
+    return this.http.patch<Post>(this.url + '/posts/' + post.id, post);
   }
 }
 
