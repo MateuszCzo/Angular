@@ -6,4 +6,8 @@
     <button (click)="updatePost()">updatePost</button>
     <button (click)="deletePost()">deletePost</button>
     <button (click)="changePost()">changePost</button>
+
+    <div *ngFor="let post of allPosts$ | async">
+        {{ post.title }}
+    </div>
 </div>

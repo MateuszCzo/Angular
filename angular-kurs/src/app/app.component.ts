@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpService } from './http.service';
-import { HttpErrorResponse } from '@angular/common/http'
+import { HttpErrorResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +10,13 @@ import { HttpErrorResponse } from '@angular/common/http'
 })
 export class AppComponent {
 
+  allPosts$!: Observable<Array<Post>>;
+
   constructor(private httpService: HttpService) {
   }
 
   getPosts() {
-    this.httpService.getPosts().subscribe(
-      posts => { console.log(posts); },
-      (error: HttpErrorResponse) => { console.log(error) }
-    );
+    this.allPosts$ = this.httpService.getPosts()
   }
 
   getPost() {

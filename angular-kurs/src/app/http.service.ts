@@ -12,11 +12,8 @@ export class HttpService  {
   constructor(private http: HttpClient) {
   }
 
-  getPosts(): Observable<HttpResponse<Response>> {
-    return this.http.get<Response>(
-      this.url + "/posts",
-      { observe: 'response' }
-    );
+  getPosts(): Observable<Array<Post>> {
+    return this.http.get<Array<Post>>(this.url + "/posts");
   }
 
   getPost(id: number): Observable<any> {
