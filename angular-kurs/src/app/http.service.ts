@@ -1,19 +1,27 @@
 import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService  {
 
+  private postsObs = new BehaviorSubject<Array<Post>>([]);
+  posts$ = this.postsObs.asObservable();
+
   private url: string = "https://jsonplaceholder.typicode.com";
 
   constructor(private http: HttpClient) {
+    this.getPosts();
   }
 
-  getPosts(): Observable<Array<Post>> {
-    return this.http.get<Array<Post>>(this.url + "/posts");
+  getPosts() {
+    return this.http.get<Array<Post>>(this.url + "/posts")
+      .subscribe(
+        posts => { this.postsObs.next(posts) },
+        err => { console.log(err) }
+      );
   }
 
   getPost(id: number): Observable<any> {

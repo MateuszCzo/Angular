@@ -16,7 +16,7 @@ export class AppComponent {
   }
 
   getPosts() {
-    this.allPosts$ = this.httpService.getPosts()
+    this.allPosts$ = this.httpService.posts$;
   }
 
   getPost() {
