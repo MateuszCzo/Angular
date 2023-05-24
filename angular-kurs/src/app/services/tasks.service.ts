@@ -1,13 +1,14 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { Task } from "../models/task";
+import { HttpService } from "./http.service";
 
 @Injectable()
 export class TasksServices {
 
   private tasksListObs = new BehaviorSubject<Array<Task>>([]);
 
-  constructor() {
+  constructor(private http: HttpService) {
     const tasksList = [
       {name: 'task1', created: new Date().toLocaleString(), isDone: false},
       {name: 'task2', created: new Date().toLocaleString(), isDone: false},
@@ -19,7 +20,7 @@ export class TasksServices {
 
   add(task: Task) {
     const list = this.tasksListObs.getValue();
-    list.push(task);_
+    list.push(task);
     this.tasksListObs.next(list);
   }
 
