@@ -15,7 +15,7 @@ export class TodoTaskComponent {
   constructor(private taskService: TasksServices) {
     this.taskService.getTasksListObs()
       .subscribe((tasks: Array<Task>) => {
-        this.tasksList = tasks.slice();
+        this.tasksList = tasks.filter(t => !t.isDone);
       });
   }
 
@@ -24,7 +24,6 @@ export class TodoTaskComponent {
   }
 
   done(task : Task) {
-    task.end = new Date().toLocaleString();
     this.taskService.done(task);
   }
 
