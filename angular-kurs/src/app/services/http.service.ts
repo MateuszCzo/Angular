@@ -11,10 +11,10 @@ export class HttpService {
   readonly param = new HttpParams().set('apiKey', '');
 
   constructor(private http: HttpClient) {
-    this.getTask();
+    this.getTasks();
   }
 
-  getTask() {
+  getTasks() {
     this.http.get(this.url, { params: this.param })
       .subscribe(tasks => {
         console.log(tasks);

@@ -8,15 +8,7 @@ export class TasksServices {
 
   private tasksListObs = new BehaviorSubject<Array<Task>>([]);
 
-  constructor(private http: HttpService) {
-    const tasksList = [
-      {name: 'task1', created: new Date().toLocaleString(), isDone: false},
-      {name: 'task2', created: new Date().toLocaleString(), isDone: false},
-      {name: 'task3', created: new Date().toLocaleString(), isDone: false},
-      {name: 'task4', created: new Date().toLocaleString(), end: new Date().toLocaleString(), isDone: true}
-    ];
-    this.tasksListObs.next(tasksList);
-  }
+  constructor(private http: HttpService) {}
 
   add(task: Task) {
     const list = this.tasksListObs.getValue();
@@ -38,5 +30,9 @@ export class TasksServices {
 
   getTasksListObs(): Observable<Array<Task>> {
     return this.tasksListObs.asObservable();
+  }
+
+  saveTasksInDb() {
+    this.http.saveTasks(this.tasksListObs.getValue());
   }
 }
