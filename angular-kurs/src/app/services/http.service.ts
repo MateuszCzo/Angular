@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Task } from '../models/task'
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,15 +15,12 @@ export class HttpService {
     this.getTasks();
   }
 
-  getTasks() {
-    this.http.get(this.url, { params: this.param })
-      .subscribe(tasks => {
-        console.log(tasks);
-      })
+  getTasks(): Observable<Array<Task>> {
+    return this.http.get<Array<Task>>(this.url, { params: this.param });
   }
 
   saveTasks(list: Array<Task>) {
-    this.http.post(this.url, list, { params: this.param })
+    this.http.put(this.url, list, { params: this.param })
       .subscribe(data => {
         console.log(data);
       });

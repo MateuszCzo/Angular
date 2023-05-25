@@ -8,7 +8,11 @@ export class TasksServices {
 
   private tasksListObs = new BehaviorSubject<Array<Task>>([]);
 
-  constructor(private http: HttpService) {}
+  constructor(private http: HttpService) {
+    this.http.getTasks().subscribe(list => {
+      this.tasksListObs.next(list);
+    })
+  }
 
   add(task: Task) {
     const list = this.tasksListObs.getValue();
