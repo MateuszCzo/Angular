@@ -1,0 +1,5 @@
+<div>
+    <input [(ngModel)]="inputPrice" (change)="calculateNumber()">
+    <app-currency-selector [currencies]="currencies" (emitCurrency)="updateFinalPrice($event)"></app-currency-selector>
+    <p>USD: {{ finalPrice | number: '1.2-2' }}</p>
+</div>
